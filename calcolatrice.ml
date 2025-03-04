@@ -7,6 +7,8 @@ let pari x = (x mod 2) = 0;;
 let doppio x = 2 * x;;
 let rec sommatoria x = if x = 0 then 0 else sommatoria(x-1) + x;;
 let rec fattoriale x = if x = 1 then 1 else fattoriale(x-1) * x;;
+let precedente x = x - 1;;
+let successivo x = x + 1;;
 
 
 let numeroUno = 10;;
@@ -27,3 +29,5 @@ else
   Printf.printf "%d non è un numero pari.\n" numeroDue;;
 Printf.printf "La sommatoria di %d è %d\n" numeroUno (sommatoria numeroUno);;
 Printf.printf "Il fattoriale di %d è %d\n" numeroUno (fattoriale numeroUno);;
+Printf.printf "Il precedente di %d è %d\n" numeroUno (precedente numeroUno);;
+Printf.printf "Il successivo di %d è %d\n" numeroUno (successivo numeroUno);;
