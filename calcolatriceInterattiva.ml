@@ -33,17 +33,18 @@ let divisione() =
 
 let errore() = Printf.printf "Comando non trovato\n";;
     
-let rec loop () =
-    stampa ();
-    let comando = letturaComando () in
-    match comando with
+let funzione x = match x with
     | 1 -> addizione ()
     | 2 -> sottrazione ()
     | 3 -> moltiplicazione ()
     | 4 -> divisione ()
     | 0 -> Printf.printf "Uscita dal programma.\n"
-    | _ -> errore ();
-    if comando <> 0 then loop () else Printf.printf "Ciao ciao\n\n";;
+    | _ -> errore ();;
+
+let rec loop () =
+    stampa ();
+    let comando = letturaComando () in 
+    if comando <> 0 then begin funzione comando; loop () end else Printf.printf "Uscita dal programma\n\nCiao ciao!\n";;
 
 let () = loop();;
 
