@@ -41,7 +41,7 @@ let potenza() =
 
 let errore() = Printf.printf "Comando non trovato\n";;
     
-let funzione x = match x with
+let selezioneScelta x = match x with
     | 1 -> addizione()
     | 2 -> sottrazione()
     | 3 -> moltiplicazione()
@@ -53,7 +53,7 @@ let funzione x = match x with
 let rec loop() =
     stampa();
     let comando = letturaComando () in 
-    if comando <> 0 then begin funzione comando; loop () end else Printf.printf "Uscita dal programma\n\nCiao ciao!\n";;
+    if comando <> 0 then begin selezioneScelta comando; loop () end else Printf.printf "Uscita dal programma\n\nCiao ciao!\n";;
 
 let () = loop();;
 
