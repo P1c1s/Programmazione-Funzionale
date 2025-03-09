@@ -10,7 +10,6 @@ let rec fattoriale x = if x = 1 then 1 else fattoriale(x-1) * x;;
 let precedente x = x - 1;;
 let successivo x = x + 1;;
 
-
 let numeroUno = 10;;
 let numeroDue = 3;;
 
