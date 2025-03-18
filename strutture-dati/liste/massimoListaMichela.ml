@@ -1,9 +1,10 @@
 Printf.printf "Il programma fa creare una lista all'utente e ne calcola il numero massimo\n\n"
 
 exception InvalidCommand
+exception InvalidInput
 
 let lista = [];;
-let max = 0;
+(* let max = 0; *)
 
 let stampa = 
   Printf.printf "1 - Inserisci un altro numero\n";
@@ -14,15 +15,15 @@ let letturaComando() =
   in int_of_string x;;
 
 let aggiuntaNumero () = 
-  Printf.printf "Inserisci numero: ";
+  Printf.printf "Inserisci numero:\t";
   let x = read_line() in 
     lista = x::lista;;
 
-let rec massimo y = 
-  let x::rest in 
-  if x = [] then ...
-  else if x > max then begin let max = x; massimo rest end
-    else massimo rest;; 
+let rec massimo y =  match y 
+  | x::rest -> if x > max then begin let max = x; massimo rest end
+                else massimo rest
+  | [] -> Printf.printf "\n%d\n" max
+  | _ -> raise InvalidInput;;
 
 let scelta x = match x with
   1 -> aggiuntaNumero ()
