@@ -16,6 +16,8 @@ let stampa (h, m) =
 
 (* Esempi di utilizzo *)
 let () =
-  stampa (somma_ore(5, 3) (2,3));   (* Output: 05:03 *)
+  stampa (somma_ore(5, 3) (2,3));   (* Output: 07:06 *)
   stampa (somma_ore(15, 3) (2,30));   (* Output: 17:33 *)
+  stampa (somma_ore(10, 45) (2,30));   (* Output: 13:15 *)
+  stampa (somma_ore(23, 11) (5,11));   (* Output: 04:22 *)
   stampa (somma_ore(25, 3) (2,3));   (* Eccezione *)
