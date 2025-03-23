@@ -6,7 +6,6 @@ let letturaIntero() = let x = read_line() in int_of_string x;;
 
 let letturaCarattere() = let x = read_line() in x;;
 
-
 let punteggio = ref 0;;
 
 let aggiornaPunteggio x = if x > 0 then
@@ -24,7 +23,7 @@ let dadi() =
       else 
         begin aggiornaPunteggio (-1); Printf.printf "Hai perso 1 punto\n" end;;
 
-let prova = if Random.int 2 = 0 then "O" else "X" in prova;;
+(* let prova = if Random.int 2 = 0 then "O" else "X" in prova;; *)
 
 let testaCroce() = 
   Printf.printf "Testa o croce [O - X]: ";
@@ -42,6 +41,20 @@ let testaCroce() =
             Printf.printf "Hai perso 1 punto\n"
           end 
 
+let accumulo a =
+  let x = Random.int 7 in
+    a + x;;
+
+let blackJack() = 
+  let giocatore = accumulo 0 in
+    if giocatore < 10 then
+      if giocatore > (Random.int 6 + 5) then
+        Printf.printf "Hai vinto"
+      else
+        Printf.printf "Ha vinto il banco"
+    else
+      Printf.printf "Hai sbancato";;
+
 let errore() = Printf.printf "Comando non trovato\n";;
 
 let stampaPunteggio() = 
@@ -50,6 +63,7 @@ let stampaPunteggio() =
 let selezioneScelta x = match x with
     | 1 -> dadi()
     | 2 -> testaCroce()
+    | 3 -> blackJack()
     | 5 -> stampaPunteggio()
     | 0 -> Printf.printf "Uscita dal programma.\n"
     | _ -> errore();;  
@@ -58,6 +72,7 @@ let stampaMenu() =
     Printf.printf "\n+---------Menu-------+\n";
     Printf.printf "| 1) Dadi             |\n";
     Printf.printf "| 2) Testa o croce    |\n";
+    Printf.printf "| 3) Black Jack       |\n";
     Printf.printf "| 5) Stampa punteggio |\n";
     Printf.printf "| 0) Esci             |\n";
     Printf.printf "+--------------------+\n\n";;
