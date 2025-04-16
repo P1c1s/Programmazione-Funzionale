@@ -50,13 +50,13 @@ let maxlist lista =
 let min_dei_max lst =
   if lst=[] then raise NoInput
   else let rec minimo n = function
-    [] -> raise NoInput
+    [] -> n
     | [x] -> min n x
     |x::xs -> minimo (min n x) xs
   in let rec mass acc = function
     [] -> acc
     |x::xs -> mass ((maxlist x)::acc) xs
-    in minimo 100 (mass [] lst);;
+    in minimo (List.hd (mass [] lst)) (List.tl (mass [] lst));;
 
 let rec drop n lista = 
   if List.length lista < n then []
