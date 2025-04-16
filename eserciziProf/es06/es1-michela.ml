@@ -30,4 +30,6 @@ let rec pairwith y = function
   [] -> []
   | x::xs -> (y,x)::(pairwith y xs);;
 
-let pairwith y lst = List.map (function x (x,y)) lst;;
+let pairwith y lst = List.map (function x -> (y,x)) lst;;
+
+let verifica_matrice n lst = List.exists (function x -> (List.for_all (function y -> y<n) x) = true) lst;;
