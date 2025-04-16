@@ -1,12 +1,9 @@
-Printf.printf "Programma che stampa la sequenza di Fibonacci\n"
+let power n k =
+  let rec loop contatore potenza =
+    if contatore <= k then
+      loop (contatore+1) (potenza*n)
+    else
+      Printf.printf "Somma: %d\n" potenza
+  in loop 1 1;;
 
-let rec fibonacci (x, y, contatore, max) =
-  if contatore < max  then 
-    begin
-      Printf.printf "%d - " (x+y);
-      fibonacci(y, x+y, contatore+1, max)
-    end
-  else
-    Printf.printf "%d \n" (x+y);;
-
-let () = fibonacci(0, 1, 1, 10);;
+let () = power 2 10;;

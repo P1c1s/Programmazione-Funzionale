@@ -1,19 +1,12 @@
-exception StringaVuota;;
+Printf.printf "Programma che stampa la sequenza di Fibonacci\n"
 
-let maxstring stringa = 
-  if stringa = "" then
-    raise StringaVuota
+let rec fibonacci (x, y, contatore, max) =
+  if contatore < max  then 
+    begin
+      Printf.printf "%d - " (x+y);
+      fibonacci(y, x+y, contatore+1, max)
+    end
   else
-    let rec loop max indice =
-      if indice < (String.length stringa) then
-        if stringa.[indice] > max then
-          loop stringa.[indice] (indice+1)
-        else
-          loop max (indice+1)
-      else
-        Printf.printf "Il massimo della stringa `%s` è `%c`\n" stringa max
-  in loop ' ' 0;; 
+    Printf.printf "%d \n" (x+y);;
 
-
-
-let () = maxstring (read_line());;
+let () = fibonacci(0, 1, 1, 10);;
