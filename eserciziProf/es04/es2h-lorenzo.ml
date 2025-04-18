@@ -19,3 +19,19 @@ let sshift l =
 let min_max lista = mmin (sshift lista);;
 
 min_max [[1;2;3];[1;3;4;10];[4;5;11]];;
+
+
+
+let min_max' lista = 
+  List.fold_left (function max x -> if x > max then x else max) max lista;;
+
+min_max' [1;2;3];;
+
+
+let mml lista = match lista with
+  | [] -> 0
+  | x :: xs -> match x with
+    | [] -> 0
+    | y :: ys -> List.fold_left (fun acc elem -> if elem > acc then elem else acc) y ys;;
+
+mml [[1;11;3]; [13;4]; [1;1]];;
