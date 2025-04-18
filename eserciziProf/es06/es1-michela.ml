@@ -8,15 +8,15 @@ let rec find p = function
 let find_app l = find (function x -> x*x < 30) l;;
 
 let takewhile p lst = 
-  let rec aux acc p = function
-    [] -> []
-    | x::xs -> if p x then (x::acc) p xs
+  let rec aux acc  = function
+    [] -> acc
+    | x::xs -> if p x then aux (x::acc)  xs
                 else []
-  in List.rev (aux [] p lst);;
+  in List.rev (aux []  lst);;
 
 let rec dropwhile p = function
   [] -> []
-  | x::xs -> if p x then dropwhile xs
+  | x::xs -> if p x then dropwhile p xs
               else x::xs;;
 
 let partition p lst = 
