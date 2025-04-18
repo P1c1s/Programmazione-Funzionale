@@ -33,3 +33,11 @@ let rec pairwith y = function
 let pairwith y lst = List.map (function x -> (y,x)) lst;;
 
 let verifica_matrice n lst = List.exists (function x -> (List.for_all (function y -> y<n) x) = true) lst;;
+
+let setdiff l1 l2 = List.filter (function x -> (List.for_all (function y -> y<>x) l2) = true) l1
+
+let subset s1 s2 = List.for_all (function x -> (List.exists (function y -> y=x) s2) = true) s1 
+
+let duplica l1 = List.map (function x ->2*x) l1;;
+
+let mapcons lst n = List.map (function x -> (Stdlib.fst x, n::(Stdlib.snd x))) lst;;
