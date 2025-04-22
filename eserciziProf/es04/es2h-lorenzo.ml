@@ -23,7 +23,7 @@ min_max [[1;2;3];[1;3;4;10];[4;5;11]];;
 
 
 let min_max' lista = 
-  List.fold_left (function max x -> if x > max then x else max) max lista;;
+  List.fold_left (fun max x -> (if x > max then x else max)) 0 lista;;
 
 min_max' [1;2;3];;
 
