@@ -1,8 +1,9 @@
 let interleave n lista = 
-  let rec aux app l = function
-    | [] -> l
-    | x::xs -> aux (app@[x]) (app@[n]@xs) xs
-  in aux [] [] lista;;
-  
-interleave 10 [0;1;2];;
+  let rec aux acc testa = function
+    | [] -> (n::lista)::(List.tl acc)
+    | x::xs -> aux (acc@([testa@[x]@[n]@xs])) (testa@[x]) xs
+  in aux [[]] [] lista;;
+
+interleave 10 [1;2;3;4];;
+
 
