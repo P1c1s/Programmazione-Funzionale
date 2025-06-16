@@ -84,4 +84,9 @@ let foglia_costo tree =
                     else aux (a,b) xs
   in aux (0,0) (foglie_costi tree);;
 
+let rec rami = function
+  Tr(x, []) -> [[x]]
+  | Tr(x, lista) ->  List.map (fun y -> x::y) (List.fold_left (@) [] (List.map rami lista));; 
 
+
+let ramo_da_lista t lst = 

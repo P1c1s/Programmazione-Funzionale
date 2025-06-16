@@ -168,7 +168,7 @@ let rec pattern_matching e1 e2 = match (e1, e2) with
   pattern_matching (Sum(Var "a", (Diff(Mult(Var "b", Var "c"), Var"d")))) (Sum(Jolly, Mult(Jolly, Jolly)));;
 
 
-type jolly = Jolly | Int of int | Int of string;;
+type jolly = Jolly | Int of int | Var of string;;
 
 let rec max_subcommon_tree t1 t2 = match (t1, t2) with
   (Tr(a, ta1, ta2), Tr(b, tb1, tb2)) -> if a = b then Tr(a, max_subcommon_tree ta1 tb1, max_subcommon_tree ta2 tb2)

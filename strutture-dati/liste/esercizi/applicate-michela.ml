@@ -87,3 +87,14 @@ let nth n lista =
   in aux n lista;; 
 
 let nth_applicata  = nth 3 [0;1;2;3;4;5;6;7];;
+
+
+
+
+let stronza n lista = 
+  let rec aux acc testa = function
+    | [] -> (n::lista)::(List.tl acc)
+    | x::xs -> aux (acc@([testa@[x]@[n]@xs])) (testa@[x]) xs
+  in aux [[]] [] lista;;
+
+  stronza 10 [1;2;3;4];;
